@@ -6,21 +6,51 @@
     <title>Kalkulator</title>
     <link
       rel="stylesheet"
-      href=" 	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
   </head>
-  <body>
-    <div class="container">
-      <input type="number" id="num1" placeholder="Pierwsza liczba" />
-      <select id="operation">
-        <option value="+">Dodawanie</option>
-        <option value="-">Odejmowanie</option>
-        <option value="*">Mnożenie</option>
-        <option value="/">Dzielenie</option>
-      </select>
-      <input type="number" id="num2" placeholder="Druga liczba" />
-      <button id="calculateButton">Oblicz</button>
-      <div id="result"></div>
+  <body
+    class="d-flex justify-content-center align-items-center"
+    style="height: 100vh; margin: 0"
+  >
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center p-3">
+          <h1 class="fw-light"><i class="bi bi-calculator"></i>Kalkulator</h1>
+          <div class="d-flex gap-2 mt-4">
+            <input
+              type="number"
+              class="form-control"
+              id="num1"
+              placeholder="Pierwsza liczba"
+            />
+            <select id="operation" class="form-select" aria-label="Dodawanie">
+              <option value="+">Dodawanie</option>
+              <option value="-">Odejmowanie</option>
+              <option value="*">Mnożenie</option>
+              <option value="/">Dzielenie</option>
+            </select>
+            <input
+              type="number"
+              id="num2"
+              placeholder="Druga liczba"
+              class="form-control"
+            />
+            <button type="button" id="calculateButton" class="btn btn-dark">
+              Oblicz
+            </button>
+          </div>
+          <div id="result" class="shadow rounded mt-3 p-3">
+            Wynik działania:
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
     </div>
 
     <script>
@@ -37,20 +67,16 @@
             alert("Podane wartości nie są liczbą.");
           } else {
             if (operation === "+") {
-              wynik = num1 + num2;
-              alert(`Wynik dodawania liczb: ${wynik}`);
+              result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
             } else if (operation === "-") {
-              wynik = num1 - num2;
-              alert(`Wynik odejmowanie liczb: ${wynik}`);
+              result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
             } else if (operation === "*") {
-              wynik = num1 * num2;
-              alert(`Wynik mnożenia liczb: ${wynik}`);
+              result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
             } else if (operation === "/") {
               if (num2 === 0) {
-                alert("Nie dzielimy przez 0.");
+                result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
               } else {
-                wynik = num1 / num2;
-                alert(`Wynik dzielenia liczb: ${wynik}`);
+                result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
               }
             } else {
               alert("Podana operacja jest nieprawidłowa.");
