@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let num1 = parseFloat(prompt("Podaj pierwszą liczbe: "));
+        let opertation = prompt(
+          "Wybierz operację:\n Dodawanie +\n Odejmowanie -\n Mnożenie *\n Dzielenie /"
+        );
+        let num2 = parseFloat(prompt("Podaj drugą liczbe: "));
+        let wynik;
+        if (isNaN(num2) || isNaN(num1)) {
+          alert("Podane wartości nie są liczbą.");
+        } else {
+          if (opertation === "+") {
+            wynik = num1 + num2;
+            alert(`Wynik dodawania liczb: ${wynik}`);
+          } else if (opertation === "-") {
+            wynik = num1 - num2;
+            alert(`Wynik odejmowanie liczb: ${wynik}`);
+          } else if (opertation === "*") {
+            wynik = num1 * num2;
+            alert(`Wynik mnożenia liczb: ${wynik}`);
+          } else if (opertation === "/") {
+            if (num2 === 0) {
+              alert("Nie dzielimy przez 0.");
+            } else {
+              wynik = num1 / num2;
+              alert(`Wynik dzielenia liczb: ${wynik}`);
+            }
+          } else {
+            alert("Podana operacja jest nieprawidłowa.");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
