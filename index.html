@@ -4,39 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kalkulator</title>
+    <link
+      rel="stylesheet"
+      href=" 	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
+    <div class="container">
+      <input type="number" id="num1" placeholder="Pierwsza liczba" />
+      <select id="operation">
+        <option value="+">Dodawanie</option>
+        <option value="-">Odejmowanie</option>
+        <option value="*">Mnożenie</option>
+        <option value="/">Dzielenie</option>
+      </select>
+      <input type="number" id="num2" placeholder="Druga liczba" />
+      <button id="calculateButton">Oblicz</button>
+      <div id="result"></div>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        let num1 = parseFloat(prompt("Podaj pierwszą liczbe: "));
-        let opertation = prompt(
-          "Wybierz operację:\n Dodawanie +\n Odejmowanie -\n Mnożenie *\n Dzielenie /"
-        );
-        let num2 = parseFloat(prompt("Podaj drugą liczbe: "));
-        let wynik;
-        if (isNaN(num2) || isNaN(num1)) {
-          alert("Podane wartości nie są liczbą.");
-        } else {
-          if (opertation === "+") {
-            wynik = num1 + num2;
-            alert(`Wynik dodawania liczb: ${wynik}`);
-          } else if (opertation === "-") {
-            wynik = num1 - num2;
-            alert(`Wynik odejmowanie liczb: ${wynik}`);
-          } else if (opertation === "*") {
-            wynik = num1 * num2;
-            alert(`Wynik mnożenia liczb: ${wynik}`);
-          } else if (opertation === "/") {
-            if (num2 === 0) {
-              alert("Nie dzielimy przez 0.");
-            } else {
-              wynik = num1 / num2;
-              alert(`Wynik dzielenia liczb: ${wynik}`);
-            }
+        const calculateButton = document.querySelector("#calculateButton");
+        calculateButton.addEventListener("click", () => {
+          let num1 = parseFloat(document.querySelector("#num1").value);
+          let num2 = parseFloat(document.querySelector("#num2").value);
+          let operation = document.querySelector("#operation").value;
+          let result = document.querySelector("#result");
+          let wynik;
+
+          if (isNaN(num2) || isNaN(num1)) {
+            alert("Podane wartości nie są liczbą.");
           } else {
-            alert("Podana operacja jest nieprawidłowa.");
+            if (operation === "+") {
+              wynik = num1 + num2;
+              alert(`Wynik dodawania liczb: ${wynik}`);
+            } else if (operation === "-") {
+              wynik = num1 - num2;
+              alert(`Wynik odejmowanie liczb: ${wynik}`);
+            } else if (operation === "*") {
+              wynik = num1 * num2;
+              alert(`Wynik mnożenia liczb: ${wynik}`);
+            } else if (operation === "/") {
+              if (num2 === 0) {
+                alert("Nie dzielimy przez 0.");
+              } else {
+                wynik = num1 / num2;
+                alert(`Wynik dzielenia liczb: ${wynik}`);
+              }
+            } else {
+              alert("Podana operacja jest nieprawidłowa.");
+            }
           }
-        }
+        });
       });
     </script>
   </body>
