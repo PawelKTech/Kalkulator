@@ -45,7 +45,7 @@
               Oblicz
             </button>
           </div>
-          <div id="result" class="shadow rounded mt-3 p-3">
+          <div id="result" class="shadow rounded mt-3 p-3 text-center fw-light">
             Wynik działania:
           </div>
         </div>
@@ -69,14 +69,14 @@
             if (operation === "+") {
               result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
             } else if (operation === "-") {
-              result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
+              result.innerHTML = `${num1} - ${num2} = ${num1 - num2}`;
             } else if (operation === "*") {
-              result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
+              result.innerHTML = `${num1} * ${num2} = ${num1 * num2}`;
             } else if (operation === "/") {
               if (num2 === 0) {
-                result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
+                result.innerHTML = `Nie można dzielić przez 0.`;
               } else {
-                result.innerHTML = `${num1} + ${num2} = ${num1 + num2}`;
+                result.innerHTML = `${num1} / ${num2} = ${num1 / num2}`;
               }
             } else {
               alert("Podana operacja jest nieprawidłowa.");
